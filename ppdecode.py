@@ -32,9 +32,9 @@ class PPDecode(object):
         self.site = self.arguments['c'][0]
 
     def _remove_unicode(self):
+        # Remove zero width space unicode character from URL
         udata = self.pplink.decode("utf-8")
-        #print udata.replace(u'\u200b', '*')
-        tmp= udata.encode("ascii", "ignore")
+        tmp = udata.replace(u'\u200b', '')
         return tmp
 
 
